@@ -1,0 +1,29 @@
+extends ../blocks/templates/template
+include ../blocks/title/title
+include ../blocks/news/news
+include ../blocks/partners/partners
+include ../blocks/contacts/contacts
+
+block head
+        - var pageTitle = "АО «Газпром газораспределение Орел»";
+
+block menu
+        - current = 0
+
+block content
+        .page__section.page__section_no_padding
+                +news-full()
+        .page__section.page__section_no_padding
+                +news(news)
+        .page__section.page__section_white
+                .page__title
+                        +title()._blue
+                                | Полезные ссылки
+                .paga__partners
+                        +partners(partners)
+        .page__section
+                .page__title
+                        +title()
+                                | Контакты
+                .page__contacts
+                        +contacts(contacts)
